@@ -1,10 +1,13 @@
 unit Unit1;
 
+{$MODE Delphi}
+
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls, jpeg;
+  LCLIntf, LCLType, LMessages, Messages, SysUtils, Variants, Classes,
+  Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls;
 
 type
   TForm1 = class(TForm)
@@ -28,9 +31,9 @@ type
     { Private declarations }
   public
     { Public declarations }
-    //Vareablen die Überall gelten
-    PIC : String;
-    Help : Boolean;
+    //Vareablen die Ãœberall gelten
+    PIC: string;
+    Help: boolean;
   end;
 
 var
@@ -38,175 +41,203 @@ var
 
 implementation
 
-{$R *.dfm}
+{$R *.lfm}
 
 procedure TForm1.Timer1Timer(Sender: TObject);
 begin
-//Uhrzeit und Datumsanzeige
-Label1.caption := 'G System  '+TimetoStr(now)+'  ' + DatetoSTR(now);
+  //Uhrzeit und Datumsanzeige
+  Label1.Caption := 'G System  ' + TimetoStr(now) + '  ' + DatetoSTR(now);
 
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-  //Schließt das Programm
-  close;
+  //SchlieÃŸt das Programm
+  Close;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
 
-Randomize;       //Zufall auf Timer Stellen
-Button3click(self);    //Taste 3 Drücken
-Image2.Picture.LoadFromFile('help.jpg');  //Hilfe Bild laden
+  Randomize;       //Zufall auf Timer Stellen
+  Button3click(self);    //Taste 3 DrÃ¼cken
+  Image2.Picture.LoadFromFile('help.jpg');  //Hilfe Bild laden
 
 end;
 
 procedure TForm1.Button3Click(Sender: TObject);
 begin
 
-//Abfrage von Case wechles Zeichen geöffnet wird
+  //Abfrage von Case wechles Zeichen geÃ¶ffnet wird
 
-CASE Random(24)+1 of
- 1 : begin
-       PIC := 'ga';
-     end;
- 2 : begin
-       PIC := 'gi';
-     end;
- 3 : begin
-       PIC := 'gu';
-     end;
- 4 : begin
-       PIC := 'ge';
-     end;
- 5 : begin
-       PIC := 'go';
-     end;
- 6 : begin
-       PIC := 'za';
-     end;
- 7 : begin
-       PIC := 'ji1';
-     end;
- 8 : begin
-       PIC := 'zu1';
-     end;
- 9 : begin
-       PIC := 'ze';
-     end;
-10 : begin
-       PIC := 'zo';
-     end;
-11 : begin
-       PIC := 'da';
-     end;
-12 : begin
-       PIC := 'ji2';
-     end;
-13 : begin
-       PIC := 'zu2';
-     end;
-14 : begin
-       PIC := 'de';
-     end;
-15 : begin
-       PIC := 'do';
-     end;
-16 : begin
-       PIC := 'ba';
-     end;
-17 : begin
-       PIC := 'bi';
-     end;
-18 : begin
-       PIC := 'bu';
-     end;
-19 : begin
-       PIC := 'be';
-     end;
-20 : begin
-       PIC := 'bo';
-     end;
-21 : begin
-       PIC := 'pa';
-     end;
-22 : begin
-       PIC := 'pi';
-     end;
-23 : begin
-       PIC := 'pu';
-     end;
-24 : begin
-       PIC := 'pe';
-     end;
-25 : begin
-       PIC := 'po';
-     end;
-26 : begin
-       PIC := '';
-     end;
-end;
+  case Random(24) + 1 of
+    1:
+    begin
+      PIC := 'ga';
+    end;
+    2:
+    begin
+      PIC := 'gi';
+    end;
+    3:
+    begin
+      PIC := 'gu';
+    end;
+    4:
+    begin
+      PIC := 'ge';
+    end;
+    5:
+    begin
+      PIC := 'go';
+    end;
+    6:
+    begin
+      PIC := 'za';
+    end;
+    7:
+    begin
+      PIC := 'ji1';
+    end;
+    8:
+    begin
+      PIC := 'zu1';
+    end;
+    9:
+    begin
+      PIC := 'ze';
+    end;
+    10:
+    begin
+      PIC := 'zo';
+    end;
+    11:
+    begin
+      PIC := 'da';
+    end;
+    12:
+    begin
+      PIC := 'ji2';
+    end;
+    13:
+    begin
+      PIC := 'zu2';
+    end;
+    14:
+    begin
+      PIC := 'de';
+    end;
+    15:
+    begin
+      PIC := 'do';
+    end;
+    16:
+    begin
+      PIC := 'ba';
+    end;
+    17:
+    begin
+      PIC := 'bi';
+    end;
+    18:
+    begin
+      PIC := 'bu';
+    end;
+    19:
+    begin
+      PIC := 'be';
+    end;
+    20:
+    begin
+      PIC := 'bo';
+    end;
+    21:
+    begin
+      PIC := 'pa';
+    end;
+    22:
+    begin
+      PIC := 'pi';
+    end;
+    23:
+    begin
+      PIC := 'pu';
+    end;
+    24:
+    begin
+      PIC := 'pe';
+    end;
+    25:
+    begin
+      PIC := 'po';
+    end;
+    26:
+    begin
+      PIC := '';
+    end;
+  end;
 
-//Öffnen von Bild zum Raten
+  //Ã–ffnen von Bild zum Raten
 
-Image1.Picture.LoadFromFile(PIC+'.jpg');
+  Image1.Picture.LoadFromFile(PIC + '.jpg');
 
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 begin
 
-//Abfrage mit IF ob die Antwort stimmt
+  //Abfrage mit IF ob die Antwort stimmt
 
-IF Edit1.text = PIC then
-begin
-  Showmessage('Sie haben Richtig geantwortet, nun weiter');
-  Edit1.text := '';
-  Button3click(self)
-end
-ELSE
-begin
-  Showmessage('Sie haben Falsch geantwortet, versuchen sie es nochmal');
-  IF Edit1.text = 'ji' then Showmessage('Achtung es gibt 2 ji !!! (ji1) oder (ji2)');
-  IF Edit1.text = 'zu' then Showmessage('Achtung es gibt 2 zu !!! (zu1) oder (zu2)');
-end;
+  if Edit1.Text = PIC then
+  begin
+    ShowMessage('Sie haben Richtig geantwortet, nun weiter');
+    Edit1.Text := '';
+    Button3click(self);
+  end
+  else
+  begin
+    ShowMessage('Sie haben Falsch geantwortet, versuchen sie es nochmal');
+    if Edit1.Text = 'ji' then
+      ShowMessage('Achtung es gibt 2 ji !!! (ji1) oder (ji2)');
+    if Edit1.Text = 'zu' then
+      ShowMessage('Achtung es gibt 2 zu !!! (zu1) oder (zu2)');
+  end;
 
 end;
 
 procedure TForm1.Image1Click(Sender: TObject);
 begin
 
-//Die Geheime Funktion zum Nachschauen
+  //Die Geheime Funktion zum Nachschauen
 
-IF HELP=FALSE THEN
-begin
-  Form1.ClientWidth := 530;
-  HELP:=True;
-end
-ELSE
-begin
-  Form1.ClientWidth := 235;
-  HELP:=False;
-end;
+  if HELP = False then
+  begin
+    Form1.ClientWidth := 530;
+    HELP := True;
+  end
+  else
+  begin
+    Form1.ClientWidth := 235;
+    HELP := False;
+  end;
 
 end;
 
 procedure TForm1.FormClick(Sender: TObject);
 begin
 
-//Die Geheime Funktion zum Nachschauen
+  //Die Geheime Funktion zum Nachschauen
 
-IF HELP=FALSE THEN
-begin
-  Form1.ClientWidth := 530;
-  HELP:=True;
-end
-ELSE
-begin
-  Form1.ClientWidth := 235;
-  HELP:=False;
-end;
+  if HELP = False then
+  begin
+    Form1.ClientWidth := 530;
+    HELP := True;
+  end
+  else
+  begin
+    Form1.ClientWidth := 235;
+    HELP := False;
+  end;
 
 end;
 

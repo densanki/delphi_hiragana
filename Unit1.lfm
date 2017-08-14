@@ -14,13 +14,10 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
-  OldCreateOrder = False
   Position = poScreenCenter
-  PrintScale = poNone
   OnClick = FormClick
   OnCreate = FormCreate
   PixelsPerInch = 96
-  TextHeight = 13
   object Image1: TImage
     Left = 0
     Top = 0
@@ -1324,8 +1321,8 @@ object Form1: TForm1
     Top = 232
     Width = 65
     Height = 33
-    Hint = 'Pr'#252'ft ob du alles richtig eingegeben hast'
-    Caption = 'Pr'#252'fen'
+    Hint = 'Prüft ob du alles richtig eingegeben hast'
+    Caption = 'Prüfen'
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
@@ -1336,7 +1333,7 @@ object Form1: TForm1
     Top = 232
     Width = 57
     Height = 33
-    Hint = 'Klicke hier wenn du das n'#228'chste Zeichen haben willst'
+    Hint = 'Klicke hier wenn du das nächste Zeichen haben willst'
     Caption = 'Weiter'
     ParentShowHint = False
     ShowHint = True
@@ -1348,7 +1345,7 @@ object Form1: TForm1
     Top = 200
     Width = 161
     Height = 21
-    Hint = 'Tippe hier deine L'#246'sung ein'
+    Hint = 'Tippe hier deine Lösung ein'
     Color = cl3DDkShadow
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clLime
